@@ -69,7 +69,7 @@ const usStatesList = [
 const form = document.querySelector("form");
 const selectUSState = document.querySelector("#inputState");
 const alertDanger = document.querySelector(".alert-danger");
-//const alertSuccess = document.querySelector(".alert-success");
+
 let userInput = document.querySelectorAll(".form-control");
 const btnSubmit = document.querySelector(".btn");
 
@@ -80,7 +80,6 @@ window.onload = function() {
 
   const showAlert = () => alertDanger.classList.remove("d-none");
   const showSuccessAlert = () => {
-    //alertSuccess.classList.remove("d-none");
     alertDanger.classList.remove("d-none");
     alertDanger.classList.remove("alert-danger");
     alertDanger.classList.add("alert-success");
@@ -92,7 +91,7 @@ window.onload = function() {
     userInput.forEach(input => {
       if (input.value == "" || input.value == null) {
         showAlert();
-        input.style.border = "2px solid red";
+        input.style.border = "1px solid #e4717a";
         return (inputFilled = false);
       }
     });
@@ -104,4 +103,9 @@ window.onload = function() {
     checkInputFields();
     if (checkInputFields()) showSuccessAlert();
   });
+};
+
+window.clearAll = () => {
+  userInput.forEach(input => (input.style.border = "1px solid #ced4da"));
+  alertDanger.classList.add("d-none");
 };
